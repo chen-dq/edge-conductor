@@ -225,14 +225,6 @@ Components:
     - rke
     - capi
 
-  - name: jitsi-web-cert
-    namespace: jitsi
-    type: dce
-    executor:
-      deploy: config/executor/jitsi-web-cert/deploy-jitsi-web-cert.yml
-    supported-clusters:
-    - rke
-
   - name: jitsi-meet
     namespace: jitsi
     type: helm
@@ -241,5 +233,11 @@ Components:
     supported-clusters:
     - rke
 
+  - name: jitsi-web-cert
+    namespace: jitsi
+    type: dce
+    executor:
+      deploy: config/executor/jitsi-web-cert/deploy-jitsi-web-cert.yml
+    supported-clusters:
+    - rke
 
-    
