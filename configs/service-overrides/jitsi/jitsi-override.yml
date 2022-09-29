@@ -1,0 +1,14 @@
+
+publicURL: "https://www.myjitsi.com"
+
+web:
+  ingress:
+    enabled: true
+    hosts:
+    - host: www.myjitsi.com
+      paths: ['/']
+    tls:
+      - secretName: jitsi-web-certificate
+        hosts:
+          - www.myjitsi.com
+

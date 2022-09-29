@@ -225,5 +225,21 @@ Components:
     - rke
     - capi
 
+  - name: jitsi-web-cert
+    namespace: jitsi
+    type: dce
+    executor:
+      deploy: config/executor/jitsi-web-cert/deploy-jitsi-web-cert.yml
+    supported-clusters:
+    - rke
+
+  - name: jitsi-meet
+    namespace: jitsi
+    type: helm
+    url: https://github.com/jitsi-contrib/jitsi-helm/archive/refs/tags/v1.2.2.tar.gz
+    chartoverride: file://{{ .Workspace }}/config/service-overrides/jitsi/jitsi-override.yml
+    supported-clusters:
+    - rke
+
 
     

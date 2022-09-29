@@ -1,0 +1,28 @@
+#
+# Copyright (c) 2022 Intel Corporation.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+apiVersion: conductor/v1
+kind: Executor
+metadata:
+  name: deploy-jitsi-meet 
+spec:
+  steps:
+  - name: deploy-jitsi-meet
+    nodes:
+      allOf:
+      - day-0 
+    commands:
+    - type: shell
+      cmd:
+      - sh
+      - -c
+      - "{{ .Workspace }}/bin/kubectl create secret tls jitsi-web-certificate \
+         --save-config \
+         --cert {{ .Workspace }}/config/executor/jitsi-web-cert/server.crt \
+         --key {{ .Workspace }}/config/executor/jitsi-web-cert/server.key \
+         --kubeconfig {{ .Kubeconfig }} \
+         --dry-run=client \
+         -o yaml -n jitsi | \
+         kubectl apply -f -"

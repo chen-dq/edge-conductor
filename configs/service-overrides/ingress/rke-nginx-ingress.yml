@@ -17,3 +17,8 @@ controller:
       https: 32443
       tcp:
         8080: 32808
+{{- range .Kitconfig.Components.Selector -}}
+{{- if eq .Name "jitsi-meet" }}
+  hostNetwork: true
+{{- end -}}
+{{- end }}

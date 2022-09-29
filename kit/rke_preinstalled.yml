@@ -98,4 +98,6 @@ Components:
   - name: portainer-ce
   - name: intel-gpu-plugin
   - name: akri
+  - name: jitsi-web-cert
+  - name: jitsi-meet
 
