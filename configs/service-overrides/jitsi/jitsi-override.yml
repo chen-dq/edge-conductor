@@ -12,3 +12,9 @@ web:
         hosts:
           - www.myjitsi.com
 
+jvb:
+  publicIP: 192.168.3.197
+  UDPPort: 31000
+  service:
+    enabled: true
+    type: NodePort
