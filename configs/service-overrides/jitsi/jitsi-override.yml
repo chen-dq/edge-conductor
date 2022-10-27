@@ -1,20 +1,22 @@
 
-publicURL: "https://www.myjitsi.com"
+publicURL: "https://www.esclub.space:8087"
 
 web:
   ingress:
     enabled: true
     hosts:
-    - host: www.myjitsi.com
+    - host: www.esclub.space
       paths: ['/']
     tls:
       - secretName: jitsi-web-certificate
         hosts:
-          - www.myjitsi.com
+          - www.esclub.space
 
 jvb:
-  publicIP: 192.168.3.197
+  publicIP: www.esclub.space
   UDPPort: 31000
   service:
     enabled: true
     type: NodePort
+  websockets:
+    enabled: true
