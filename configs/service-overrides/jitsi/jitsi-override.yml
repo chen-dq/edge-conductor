@@ -1,5 +1,7 @@
 
 publicURL: "https://www.esclub.space:8087"
+enableAuth: true
+tz: Asia/Hong_Kong
 
 web:
   ingress:
@@ -11,6 +13,10 @@ web:
       - secretName: jitsi-web-certificate
         hosts:
           - www.esclub.space
+  image:
+    repository: 192.168.3.116:9000/library/neusoft-web
+    tag: v1.0.4
+          # tag: 'stable-7001'
 
 jvb:
   publicIP: www.esclub.space
@@ -20,3 +26,14 @@ jvb:
     type: NodePort
   websockets:
     enabled: true
+  image:
+    tag: 'stable-7001'
+
+jicofo:
+  image:
+    tag: 'stable-7001'
+
+prosody:
+  image:
+    tag: 'stable-7001'
+
